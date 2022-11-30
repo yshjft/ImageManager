@@ -73,13 +73,10 @@ public class GlobalExceptionHandler {
         return createErrorResponseEntity(e, BAD_REQUEST);
     }
 
-
-
 //    @ExceptionHandler(MaxUploadSizeExceededException.class)
 //    public ResponseEntity<ErrorResponse> handleMaxUploadSizeExceededException(MaxUploadSizeExceededException e) {
 //
 //    }
-
 
     private ResponseEntity<ErrorResponse> createErrorResponseEntity(Exception e, ErrorCode errorCode) {
         if(errorCode.isSerious()) {
