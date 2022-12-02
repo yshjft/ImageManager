@@ -34,9 +34,14 @@ public class Post extends BaseEntity {
     }
 
     private void setTitle(String title) {
-        if(!hasText(title) || title.length() > 100) {
+        if(!hasText(title)) {
             throw new InvalidRequestException(BAD_REQUEST);
         }
+
+        if(title.length() > 100) {
+            throw new InvalidRequestException(BAD_REQUEST);
+        }
+
         this.title = title;
     }
 }

@@ -35,6 +35,7 @@ class PostTest {
 
         // success
         @Test
+        @DisplayName("Post 엔티티 생성 성공 테스트")
         void testCreationSuccessCase() {
             String title = "삼색이는 정말 귀여워!";
             Post post = new Post(title);
