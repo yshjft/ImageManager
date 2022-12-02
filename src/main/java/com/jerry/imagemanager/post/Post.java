@@ -2,7 +2,6 @@ package com.jerry.imagemanager.post;
 
 import com.jerry.imagemanager.common.entity.BaseEntity;
 import com.jerry.imagemanager.common.error.exception.InvalidRequestException;
-import com.jerry.imagemanager.image.PostImage;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

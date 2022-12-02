@@ -1,4 +1,4 @@
-package com.jerry.imagemanager.image;
+package com.jerry.imagemanager.post;
 
 import com.jerry.imagemanager.common.entity.BaseEntity;
 import com.jerry.imagemanager.common.error.exception.InvalidRequestException;

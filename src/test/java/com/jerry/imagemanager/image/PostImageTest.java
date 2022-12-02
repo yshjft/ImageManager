@@ -2,6 +2,7 @@ package com.jerry.imagemanager.image;
 
 import com.jerry.imagemanager.common.error.exception.InvalidRequestException;
 import com.jerry.imagemanager.post.Post;
+import com.jerry.imagemanager.post.PostImage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
