@@ -1,7 +1,7 @@
-package com.jerry.imagemanager.post;
+package com.jerry.imagemanager.domain.post;
 
-import com.jerry.imagemanager.common.entity.BaseEntity;
-import com.jerry.imagemanager.common.error.exception.InvalidRequestException;
+import com.jerry.imagemanager.global.common.entity.BaseEntity;
+import com.jerry.imagemanager.global.error.exception.InvalidRequestException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.jerry.imagemanager.common.error.ErrorCode.BAD_REQUEST;
+import static com.jerry.imagemanager.global.error.ErrorCode.BAD_REQUEST;
 import static org.springframework.util.StringUtils.hasText;
 
 @Entity

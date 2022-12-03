@@ -1,6 +1,6 @@
-package com.jerry.imagemanager.common.error.exception;
+package com.jerry.imagemanager.global.error.exception;
 
-import com.jerry.imagemanager.common.error.ErrorCode;
+import com.jerry.imagemanager.global.error.ErrorCode;
 
 public class InvalidRequestException extends RuntimeException{
     private final ErrorCode errorCode;

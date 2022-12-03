@@ -1,4 +1,4 @@
-package com.jerry.imagemanager.common;
+package com.jerry.imagemanager.global.common.dto;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.jerry.imagemanager.common.util;
+package com.jerry.imagemanager.global.common.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

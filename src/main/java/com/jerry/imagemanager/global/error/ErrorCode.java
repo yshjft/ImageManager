@@ -1,4 +1,4 @@
-package com.jerry.imagemanager.common.error;
+package com.jerry.imagemanager.global.error;
 
 import lombok.Getter;
 

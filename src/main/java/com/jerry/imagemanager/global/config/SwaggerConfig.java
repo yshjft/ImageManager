@@ -1,7 +1,7 @@
-package com.jerry.imagemanager.common.config;
+package com.jerry.imagemanager.global.config;
 
 import com.fasterxml.classmate.TypeResolver;
-import com.jerry.imagemanager.common.util.MyPageable;
+import com.jerry.imagemanager.global.common.util.MyPageable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Pageable;

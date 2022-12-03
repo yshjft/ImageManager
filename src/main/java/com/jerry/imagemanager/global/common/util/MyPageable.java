@@ -1,4 +1,4 @@
-package com.jerry.imagemanager.common.util;
+package com.jerry.imagemanager.global.common.util;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

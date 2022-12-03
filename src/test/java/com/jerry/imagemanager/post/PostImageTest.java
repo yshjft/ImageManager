@@ -1,8 +1,8 @@
 package com.jerry.imagemanager.post;
 
-import com.jerry.imagemanager.common.error.exception.InvalidRequestException;
-import com.jerry.imagemanager.post.Post;
-import com.jerry.imagemanager.post.PostImage;
+import com.jerry.imagemanager.global.error.exception.InvalidRequestException;
+import com.jerry.imagemanager.domain.post.Post;
+import com.jerry.imagemanager.domain.post.PostImage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.jerry.imagemanager.common.error.ErrorCode.BAD_REQUEST;
+import static com.jerry.imagemanager.global.error.ErrorCode.BAD_REQUEST;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;

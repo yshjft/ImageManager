@@ -1,4 +1,4 @@
-package com.jerry.imagemanager.common.entity;
+package com.jerry.imagemanager.global.common.entity;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
