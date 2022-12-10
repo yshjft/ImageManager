@@ -20,7 +20,7 @@ import static com.jerry.imagemanager.global.error.ErrorCode.FILE_CONVERTING_FAIL
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class S3Uploader {
+public class AwsS3Uploader {
     private final AmazonS3Client amazonS3Client;
 
     @Value("${cloud.aws.s3.bucket}")
