@@ -1,6 +1,6 @@
-package com.jerry.imagemanager.common;
+package com.jerry.imagemanager.global.common.dto;
 
-import com.jerry.imagemanager.common.error.ErrorCode;
+import com.jerry.imagemanager.global.error.ErrorCode;
 import lombok.Getter;
 
 @Getter

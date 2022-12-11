@@ -1,6 +1,9 @@
 spring:
   application:
     name: image-manager
+  profiles:
+    include:
+      - aws
   jpa:
     open-in-view: false
     properties:
@@ -17,4 +20,10 @@ spring:
     multipart:
       enabled: true
       max-file-size: 5MB
-      max-request-size: 50MB
+      max-request-size: 15MB
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error

@@ -1,6 +1,7 @@
-package com.jerry.imagemanager.common.error;
+package com.jerry.imagemanager.global.error;
 
-import com.jerry.imagemanager.common.ErrorResponse;
+import com.jerry.imagemanager.global.common.dto.ErrorResponse;
+import com.jerry.imagemanager.global.error.exception.FileConvertingFailException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -14,7 +15,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import static com.jerry.imagemanager.common.error.ErrorCode.*;
+import static com.jerry.imagemanager.global.error.ErrorCode.*;
 
 @Slf4j
 @RestControllerAdvice
@@ -65,6 +66,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ErrorResponse> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
         return createErrorResponseEntity(e, BAD_REQUEST);
+    }
+
+    // s3 파일 변환 실패시
+    @ExceptionHandler(FileConvertingFailException.class)
+    public ResponseEntity<ErrorResponse> handleIllegalArgumentException(FileConvertingFailException e) {
+        return createErrorResponseEntity(e, FILE_CONVERTING_FAIL);
     }
 
     // 400 : Can not find api
