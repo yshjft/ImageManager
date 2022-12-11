@@ -6,9 +6,10 @@ import lombok.Getter;
 public enum ErrorCode {
     INTERNAL_SERVER_ERROR(500, "E500_SERVER", "서버 문제 발생하였습니다."),
     BAD_REQUEST(400, "E400", "잘 못된 입력입니다."),
-    FILE_CONVERTING_FAIL(400, "E400_FILE_CONVERTING", "MultipartFile -> File 전환 실패"),
+    FILE_CONVERTING_FAIL(400, "E400_FILE_CONVERTING_FAIL", "MultipartFile -> File 전환 실패"),
+    MAX_UPLOAD_SIZE_EXCEEDED(400, "E400_MAX_UPLOAD_SIZE_EXCEEDED", "최대 파일 크기(5MB)보다 큰 파일입니다."),
     NOT_FOUND(404, "E404", "해당 리소스를 찾을 수 없습니다."),
-    METHOD_NOT_ALLOWED(405, "E405", "지원하지 않는 HTTP 메소드 입니다."),
+    METHOD_NOT_ALLOWED(405, "E405", "지원하지 않는 HTTP 메소드 입니다.")
     ;
 
 

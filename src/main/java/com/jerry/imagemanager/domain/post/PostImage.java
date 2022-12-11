@@ -19,7 +19,7 @@ import static org.springframework.util.StringUtils.hasText;
 @Getter
 public class PostImage extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "post_image_id")
     private Long id;
 
