@@ -18,11 +18,10 @@ import java.util.List;
 public class PostController {
     @PostMapping
     public ResponseEntity<ApiResponse<String>> createPost(
-            @RequestBody @Valid PostCreateRequest postCreateRequest,
-            @RequestPart(value = "files", required = false) List<MultipartFile> files
+            @ModelAttribute @Valid PostCreateRequest postCreateRequest,
+            @RequestParam("files") List<MultipartFile> files
     ) {
-
-//        log.info("size : {}", files.size());
+        log.info("size : {}", files.size());
 
         return ResponseEntity.created(URI.create("/posts/"))
                 .body(new ApiResponse<>(
