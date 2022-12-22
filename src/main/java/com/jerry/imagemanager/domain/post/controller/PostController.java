@@ -21,7 +21,7 @@ public class PostController {
             @ModelAttribute @Valid PostCreateRequest postCreateRequest,
             @RequestParam("files") List<MultipartFile> files
     ) {
-        log.info("size : {}", files.size());
+
 
         return ResponseEntity.created(URI.create("/posts/"))
                 .body(new ApiResponse<>(
