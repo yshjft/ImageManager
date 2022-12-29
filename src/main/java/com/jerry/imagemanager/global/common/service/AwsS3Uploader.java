@@ -13,7 +13,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static com.jerry.imagemanager.global.error.ErrorCode.FILE_CONVERTING_FAIL;
 
@@ -27,9 +29,26 @@ public class AwsS3Uploader {
     private String bucket;
 
     // MultipartFile을 전달받아 File로 전환한 후 S3에 업로드
-    public String upload(MultipartFile multipartFile, String dirName) throws IOException {
-        File uploadFile = convert(multipartFile).orElseThrow(() -> new FileConvertingFailException(FILE_CONVERTING_FAIL));
-        return upload(uploadFile, dirName);
+    public String upload(MultipartFile multipartFile, String dirName) {
+        try {
+            File uploadFile = convert(multipartFile).orElseThrow(() -> new FileConvertingFailException(FILE_CONVERTING_FAIL));
+            return upload(uploadFile, dirName);
+        }catch (IOException ioException) {
+            throw new FileConvertingFailException(FILE_CONVERTING_FAIL);
+        }
+    }
+
+    public List<String> upload(List<MultipartFile> multipartFiles, String dirName) {
+            return multipartFiles.stream()
+                    .map(multipartFile -> {
+                        try {
+                            File uploadFile = convert(multipartFile).orElseThrow(() -> new FileConvertingFailException(FILE_CONVERTING_FAIL));
+                            return upload(uploadFile, dirName);
+                        }catch (IOException ioException) {
+                            throw new FileConvertingFailException(FILE_CONVERTING_FAIL);
+                        }
+                    })
+                    .collect(Collectors.toList());
     }
 
     private String upload(File uploadFile, String dirName) {
@@ -57,7 +76,7 @@ public class AwsS3Uploader {
         }
     }
 
-    private Optional<File> convert(MultipartFile file) throws  IOException {
+    private Optional<File> convert(MultipartFile file) throws IOException{
         File convertFile = new File(file.getOriginalFilename());
 
         if(convertFile.createNewFile()) {
