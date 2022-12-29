@@ -49,7 +49,7 @@ public class PostService {
     }
 
     private void validateFileCount(List<MultipartFile> files) {
-        if(files == null || files.size() < POST_IMAGE_MIN_COUNT || files.size() > POST_IMAGE_MAX_COUNT) {
+        if(files == null || files.get(0).getSize() == 0 || files.size() < POST_IMAGE_MIN_COUNT || files.size() > POST_IMAGE_MAX_COUNT) {
             throw new InvalidRequestException(INVALID_IMAGE_COUNT);
         }
     }

@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum ErrorCode {
     INTERNAL_SERVER_ERROR(500, "E500_SERVER", "서버 문제 발생하였습니다."),
-    BAD_REQUEST(400, "E400", "잘 못된 입력입니다."),
+    BAD_REQUEST(400, "E400", "잘못된 입력입니다."),
     FILE_CONVERTING_FAIL(400, "E400_FILE_CONVERTING_FAIL", "MultipartFile -> File 전환 실패"),
     INVALID_IMAGE_COUNT(400, "E400_INVALID_FILE_COUNT", "1 <= 사진 개수 <= 3"),
     INVALID_FILE_EXTENSION(400, "E400_INVALID_FILE_EXTENSION", "허용되지 않는 파일 타입입니다."),

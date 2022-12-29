@@ -2,6 +2,7 @@ package com.jerry.imagemanager.global.error;
 
 import com.jerry.imagemanager.global.common.dto.ErrorResponse;
 import com.jerry.imagemanager.global.error.exception.FileConvertingFailException;
+import com.jerry.imagemanager.global.error.exception.InvalidRequestException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -84,6 +85,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MaxUploadSizeExceededException.class)
     public ResponseEntity<ErrorResponse> handleMaxUploadSizeExceededException(MaxUploadSizeExceededException e) {
         return createErrorResponseEntity(e, MAX_UPLOAD_SIZE_EXCEEDED);
+    }
+
+    @ExceptionHandler(InvalidRequestException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidRequestException(InvalidRequestException e) {
+        return createErrorResponseEntity(e, e.getErrorCode());
     }
 
     private ResponseEntity<ErrorResponse> createErrorResponseEntity(Exception e, ErrorCode errorCode) {
