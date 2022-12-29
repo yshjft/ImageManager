@@ -13,6 +13,12 @@ public class ApiResponse<T> {
   private T data;
 
   @Builder
+  public ApiResponse(String message, Integer status) {
+    this.message = message;
+    this.status = status;
+  }
+
+  @Builder
   public ApiResponse(String message, Integer status, T data) {
     this.message = message;
     this.status = status;
