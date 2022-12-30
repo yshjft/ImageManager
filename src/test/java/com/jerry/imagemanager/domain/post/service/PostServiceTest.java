@@ -2,7 +2,7 @@ package com.jerry.imagemanager.domain.post.service;
 
 import com.jerry.imagemanager.domain.post.Post;
 import com.jerry.imagemanager.domain.post.PostImage;
-import com.jerry.imagemanager.domain.post.dto.PostCreateRequest;
+import com.jerry.imagemanager.domain.post.dto.request.PostCreateRequest;
 import com.jerry.imagemanager.domain.post.repository.PostImageRepository;
 import com.jerry.imagemanager.domain.post.repository.PostRepository;
 import com.jerry.imagemanager.global.common.service.AwsS3Uploader;
@@ -21,7 +21,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
-import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;

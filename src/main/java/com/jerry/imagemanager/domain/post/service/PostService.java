@@ -2,17 +2,20 @@ package com.jerry.imagemanager.domain.post.service;
 
 import com.jerry.imagemanager.domain.post.Post;
 import com.jerry.imagemanager.domain.post.PostImage;
-import com.jerry.imagemanager.domain.post.dto.PostCreateRequest;
+import com.jerry.imagemanager.domain.post.dto.request.PostCreateRequest;
+import com.jerry.imagemanager.domain.post.dto.response.ImageResponse;
+import com.jerry.imagemanager.domain.post.dto.response.PostResponse;
 import com.jerry.imagemanager.domain.post.repository.PostImageRepository;
 import com.jerry.imagemanager.domain.post.repository.PostRepository;
 import com.jerry.imagemanager.global.common.service.AwsS3Uploader;
 import com.jerry.imagemanager.global.error.exception.InvalidRequestException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.transaction.Transactional;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,6 +49,24 @@ public class PostService {
         postImageRepository.saveAll(postImages);
 
         return post.getId();
+    }
+
+    // 조회
+    @Transactional(readOnly = true)
+    public Slice<PostResponse> getPosts(Pageable pageable) {
+        Slice<Post> slicedPosts = postRepository.findPosts(pageable);
+
+       return slicedPosts.map(post -> {
+            List<ImageResponse> images = post.getPostImages().stream()
+                    .map(postImage -> new ImageResponse(postImage.getImageUrl()))
+                    .collect(Collectors.toList());
+
+            return PostResponse.builder()
+                    .id(post.getId())
+                    .title(post.getTitle())
+                    .images(images)
+                    .build();
+        });
     }
 
     private void validateFileCount(List<MultipartFile> files) {

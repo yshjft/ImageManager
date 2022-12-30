@@ -3,6 +3,7 @@ package com.jerry.imagemanager.global.common.dto;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Slice;
 
 import java.util.List;
 
@@ -11,19 +12,16 @@ public class PageResponse<T> {
   private List<T> content;
   private int numberOfElements;
   private int pageNumber;
-  private long offset;
   private int pageSize;
-  private long totalElements;
-  private int totalPage;
+  private boolean hasNext;
+
 
   @Builder
-  public PageResponse(Page<T> page) {
-    this.content = page.getContent();
-    this.numberOfElements = page.getNumberOfElements();
-    this.pageNumber = page.getPageable().getPageNumber();
-    this.offset = page.getPageable().getOffset();
-    this.pageSize = page.getPageable().getPageSize();
-    this.totalElements = page.getTotalElements();
-    this.totalPage = page.getTotalPages();
+  public PageResponse(Slice<T> slice) {
+    this.content = slice.getContent();
+    this.numberOfElements = slice.getNumberOfElements();
+    this.pageNumber = slice.getPageable().getPageNumber();
+    this.pageSize = slice.getPageable().getPageSize();
+    this.hasNext = slice.hasNext();
   }
 }
