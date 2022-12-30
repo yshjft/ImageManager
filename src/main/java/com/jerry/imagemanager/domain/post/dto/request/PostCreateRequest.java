@@ -1,4 +1,4 @@
-package com.jerry.imagemanager.domain.post.dto;
+package com.jerry.imagemanager.domain.post.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

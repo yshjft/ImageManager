@@ -12,7 +12,6 @@ public class ApiResponse<T> {
   private Integer status;
   private T data;
 
-  @Builder
   public ApiResponse(String message, Integer status) {
     this.message = message;
     this.status = status;
