@@ -1,4 +1,4 @@
-package com.jerry.imagemanager.post;
+package com.jerry.imagemanager.domain.post;
 
 import com.jerry.imagemanager.global.error.exception.InvalidRequestException;
 import com.jerry.imagemanager.domain.post.Post;
