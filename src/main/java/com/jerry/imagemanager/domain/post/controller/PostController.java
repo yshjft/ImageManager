@@ -26,12 +26,9 @@ public class PostController {
             @ModelAttribute @Valid PostCreateRequest postCreateRequest,
             @RequestParam("files") List<MultipartFile> files
     ) {
-       postService.createPost(postCreateRequest, files);
+       Long createdPostId = postService.createPost(postCreateRequest, files);
 
-        return ResponseEntity.created(URI.create("/posts/"))
-                .body(new ApiResponse<>(
-                        "게시물 생성 완료",
-                        HttpStatus.CREATED.value(),
-                        ""));
+        return ResponseEntity.created(URI.create("/posts/"+createdPostId))
+                .body(new ApiResponse<>("게시물 생성 완료", HttpStatus.CREATED.value()));
     }
 }
